@@ -79,7 +79,7 @@ On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in r
 
 <br>
 
-# Principles of Operation
+# General Overview
 
 The tooth eater appears to deal with 'teeth' or pulses, however in reality it is only the rising or falling edges of that pulse that is relevant to the downstream ECU. The ECU deals only with edges and when it receives them it internally fires an interrupt service routine (ISR) that will update the crank and/or cam position in real time. All ECU's work with edges.
 
@@ -154,7 +154,7 @@ These raw signals are fed into the VR conditioner plug-in circuit on the board. 
 
 <br>
 
-Finally, the output produced by the tooth eater module.
+Finally, the output produced by the tooth eater module. Both the cam and crank signals are now in an acceptable format for use with a stand alone ECU.
 <table border="1">
 <tr>
 <td align="center" valign="center">
@@ -170,5 +170,38 @@ Finally, the output produced by the tooth eater module.
 </table>
 
 
+<br>
+Once in Tuner Studio, we configure the ECU for 12T crank and 1T cam. In RusEFI the dialog box is shown below. For Speeduino, 'Dual Wheel' would need to be selected and configured in a similar manner.
 
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"
+    src="./images/RusEfiTriggerSettings.png#center">
+</img>
 
+<p style="text-align: center;">In my case I used RusEFI. The trigger configuration shown was used with the cam and crank signals.</p>
+</table>
+
+<br>
+The output we expect from the high speed logger interface in Tuner Studio is shown.
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"
+    src="./images/TraceLogged.png#center">
+</img>
+
+<p style="text-align: center;">This is the desired output we want to see. I.e. One cam pulse per two crank revolutions (24 crank pulses).</p>
+</table>
+
+# Principles of Operation
+Coming next.

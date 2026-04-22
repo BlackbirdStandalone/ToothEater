@@ -55,7 +55,7 @@ Houses an on-board VR conditioner. This unit is a direct plug in module as used 
 <strong>(3)</strong>
 </td>
 <td width="95%">
-On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in red in the above image). it is critical that this tooth is always selected by the firmware on engine startup since the ECU will be also synced to it. The Tooth Eater will inhibit all output until engine SYNC has occurred. Once SYNC has occured, the tooth eater will 'release' both the CRANK and CAM signals to the stand alone ECU for further processing. This makes for a clean transition ensuring that the ECU receives crisp signals.
+On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in red in the above image). it is critical that this tooth is always selected by the firmware on engine startup since the ECU will be also synced to it. The Tooth Eater will inhibit all output until engine SYNC has occurred. Once SYNC has occurred, the tooth eater will 'release' both the CRANK and CAM signals to the stand alone ECU for further processing. This makes for a clean transition ensuring that the ECU receives crisp signals.
 </td>
 </tr>
 
@@ -85,7 +85,7 @@ The tooth eater appears to deal with 'teeth' or pulses, however in reality it is
 
 The early 2000's CBRs use a 12 tooth crank trigger wheel. The teeth are exactly spaced as the hours on a clock. In one crank revolution the ECU will see 12 pulses (360 deg). Two crank revolutions constitutes one engine cycle in which case 24 crank pulses will have been received by the ECU (720 deg). In one engine cycle exactly one cam pulse will be produced by the tooth eater.
 
-The cam trigger wheel is as shown below. The tooth highlighted in red is the SYNC tooth as mentioned. I also refer to this tooth as the 'First Paired', since it is adjacent to its neighbour tooth that I refer to the 'Second Paired'. The remaining opposite tooth (on its own) I refer to as the 'Isolated' tooth. Once SYNCED, the firmware inhibits the 'Second Paired' and 'Isolated' tooth and only allows the 'First Paired' to pass through. It does this continually as the engine is running, however in most cases the ECU is only interested in the initial startup then manages its own cam sync internally. Once SYNCED, the crank signal is allowed to 'pass-through' to the ECU via the VR conditioner. When the engine is running the crank signal is not processed by the tooth eater, however it is briefly used at engine startup to gain the SYNC as fast as possible for short cranking times. In the worst case scenario, SYNC should be attained in no more than 2 camshaft revolutions or 4 crank revolutions. Both cam and crank signals are used to gain initial sync.
+The cam trigger wheel is as shown below. The tooth highlighted in red is the SYNC tooth as mentioned. I also refer to this tooth as the 'First Paired', since it is adjacent to its neighbour tooth that I refer to the 'Second Paired'. The remaining opposite tooth (on its own) I refer to as the 'Isolated' tooth. Once SYNCED, the firmware inhibits the 'Second Paired' and 'Isolated' tooth and only allows the 'First Paired' to pass through. It does this continually as the engine is running, however in most cases the ECU is only interested in the initial startup then manages its own cam sync internally. Once SYNCED, the crank signal is allowed to 'pass-through' to the ECU via the VR conditioner. When the engine is running the crank signal is not processed by the tooth eater, however it is briefly used at engine startup in conjunction with the cam signal to gain SYNC as fast as possible for short cranking times. In the worst case scenario, SYNC should be attained in no more than 2 camshaft revolutions or 4 crank revolutions. Both cam and crank signals are used to gain initial sync.
 
 <table border="1">
 <tr>
@@ -102,7 +102,7 @@ The cam trigger wheel is as shown below. The tooth highlighted in red is the SYN
 </table>
 
 <br>
-As the camshaft spins it produces a signal as shown below. This is the raw signal as produced by the inductive pickup and is not processable directly by the ECU.
+As the camshaft spins at cranking speed it produces a signal as shown below. This is the raw signal as produced by the inductive pickup and is not processable directly by the ECU.
 
 <table border="1">
 <tr>
@@ -136,7 +136,7 @@ Likewise, the raw crank signal appears as follows.
 <p style="text-align: center;">Raw crank signal directly from the inductive pickup.</p>
 </table>
 
-These raw signals are fed into the VR conditioner plug-in circuit on the board. The TTL output is shown in the image below.
+These raw signals are fed into the VR conditioner plug-in module. The TTL output is shown in the image below. Note the three inverted cam pulses shown in the upper half image. This TTL signal is fed into the tooth eater for processing. The lower half image shows the crank signal.
 
 <table border="1">
 <tr>

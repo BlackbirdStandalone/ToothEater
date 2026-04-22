@@ -1,6 +1,6 @@
 # Tooth Eater Module
 
-Some early 2000's Honda CBR models use a 3-spoke cam trigger wheel. Some examples are the Honda Blackbird CBR1100XX, CBR600 and Honda Aquatrax jet ski. Other models may also use this pattern as well.
+Various early 2000's Honda CBR models use a 3-spoke cam trigger wheel. Some examples are the Honda Blackbird CBR1100XX, CBR600 and Honda Aquatrax jet ski. Other models may also use this pattern as well.
 
 </br>
 <table border="1">
@@ -20,7 +20,7 @@ Some early 2000's Honda CBR models use a 3-spoke cam trigger wheel. Some example
 </tr>
 </br>
 
- While this 3-spoke pattern is designed to work with the OEM Keihin ECU, it will not work with many stand alone ECU's. Most 'off the shelf' stand alone ECU systems such as Speeduino, RusEFI and others will cater for a single tooth pulse from the camshaft without fuss since this is a very standard configuration. In the past this issue is usually worked around by physically removing two teeth from the original cam trigger wheel (by grinding or hack-saw), leaving one behind. This works for a stand alone unit, but then renders the Keihin unit inoperative since it expects the 3 teeth.
+ While this 3-spoke pattern is designed to work with the OEM Keihin ECU, it will not work with many stand alone ECU's due to its peculiar tooth arrangement. Many stand alone ECU systems available on the market today such as Megasquirt, Speeduino, RusEFI and others will cater for a single tooth pulse from the camshaft without fuss since this is a very standard configuration. In the past, this issue was usually resolved by physically removing two teeth from the original cam trigger wheel (I.e. by grinding or hack-saw), leaving one tooth behind. This allows the stand alone unit but also renders the Keihin unit inoperative since it expects the 3 teeth. If the original Keihin unit was to work again then a new cam trigger wheel would need to be re-installed onto the camshaft. This project aims to allow one to retain the existing Honda wiring harness whilst also eliminating the need to physically grind the two teeth off the camshaft trigger wheel. Therefore making it unnecessary to open the top end and allowing for the original Keihin unit to be reinstalled easily if needed.
 
 You can watch the tooth eater in action working together with the microRusEfi stand alone ECU by clicking on the image below.
 [![Watch the video](./images/thumb.jpg)](https://vimeo.com/reviews/9667708b-47c5-4177-8223-fa850c1e370e/videos/1182912498)
@@ -37,7 +37,7 @@ This Tooth Eater module performs the following tasks:<BR>
 <strong>(1)</strong>
 </td>
 <td width="95%">
-Converts the CBR's 3-spoke cam pattern into a single digital pulse making it compatible with other standalone ecu systems such as speeduino, rusefi, etc.
+Converts the CBR's 3-spoke cam pattern into a single digital pulse making it compatible with other standalone ecu systems on the market.
 </td>
 </tr>
 
@@ -46,7 +46,7 @@ Converts the CBR's 3-spoke cam pattern into a single digital pulse making it com
 <strong>(2)</strong>
 </td>
 <td width="95%">
-Houses an on-board VR conditioner. This unit is a direct plug in module as used on Speeduino boards and it plugs straight into the tooth eater board (as seen in the image above). The Blackbird and other CBR's models require the VR module since they use inductive pickups on both the crank and the cam. The VR module converts the direct signal from the inductive pickups into a 0-5v TTL signal making it compatible with the stand alone ECU.
+Houses an on-board VR conditioner. This unit is a direct plug in module as used on Speeduino boards and it plugs straight into the tooth eater board (as seen in the image above). The Blackbird and other CBR's models require the VR module since they use inductive pickups on both the crank and the cam. The VR module converts the direct signal from the inductive pickups into a 0-5v TTL signal making it compatible with the stand alone ECU. This VR unit is readily available for purchase on the internet as part of the speeduino project.
 </td>
 </tr>
 
@@ -55,10 +55,26 @@ Houses an on-board VR conditioner. This unit is a direct plug in module as used 
 <strong>(3)</strong>
 </td>
 <td width="95%">
-On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in red in the above image). it is critical that this tooth is always selected by the firmware on engine start since the ECU will be also synced to it. The Tooth Eater will inhibit any output until engine SYNC has occurred. Once SYNC has occured, the tooth eater will 'release' both the CRANK and CAM signals to the stand alone ECU for further processing. This is to make for a clean transition ensuring that the ECU recieves crisp signals.
+On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in red in the above image). it is critical that this tooth is always selected by the firmware on engine startup since the ECU will be also synced to it. The Tooth Eater will inhibit all output until engine SYNC has occurred. Once SYNC has occured, the tooth eater will 'release' both the CRANK and CAM signals to the stand alone ECU for further processing. This makes for a clean transition ensuring that the ECU receives crisp signals.
 </td>
 </tr>
 
+</table>
+
+<BR>
+
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"
+    src="./images/TE-2.jpg#center">
+</img>
+
+<p style="text-align: center;">Tooth Eater board with VR module inserted atop.</p>
 </table>
 
 <br>
@@ -152,4 +168,7 @@ Finally, the output produced by the tooth eater module.
 
 <p style="text-align: center;">Tooth Eater processed output. This is fed into the downstream ECU. I.e. 24 crank pulses and 1 cam pulse. This makes for a very standard configuration that most ECU's will support.</p>
 </table>
+
+
+
 

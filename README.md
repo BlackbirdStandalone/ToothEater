@@ -62,6 +62,7 @@ On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in r
 </table>
 
 <br>
+
 # Principles of Operation
 
 The tooth eater appears to deals with 'teeth' or pulses, however in reality it is only the rising or falling edges of that pulse that is relevant to the downstream ECU. The ECU deals only with edges and when it receives them, the ECU internally fires an interrupt service routine (ISR) that will update the crank and/or cam position in real time. All ECU's work with edges.

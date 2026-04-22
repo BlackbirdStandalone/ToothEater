@@ -11,7 +11,7 @@ Some early 2000's Honda CBR models use a 3-spoke cam trigger wheel. Some example
            margin-left: auto;
            margin-right: auto;
            width: 50%;"
-    src="../BlackbirdStandalone/images/BB_ExhCam.png#center">
+    src="./images/BB_ExhCam.png#center">
 </img>
 
 <p style="text-align: center;">The tooth shown in red is the reference tooth that is allowed through to the stand alone ECU. The other teeth are digitally deleted (eaten) by the tooth eater. This reference tooth also happens to align with TDC cylinder #1 & #4.</p>
@@ -22,7 +22,9 @@ Some early 2000's Honda CBR models use a 3-spoke cam trigger wheel. Some example
 
  While this 3-spoke pattern is designed to work with the OEM Keihin ECU, it will not work with many stand alone ECU's. Most 'off the shelf' stand alone ECU systems such as speeduino/RusEFI and others will cater for a single tooth pulse from the camshaft without fuss since this is a very standard configuration. In the past this issue is usually worked around by physically removing two teeth from the original cam trigger wheel (by grinding or hack-saw), leaving one behind. This works for a stand alone unit, but then renders the Keihin unit inoperative since it expects the 3 teeth.
 
-[Here] (https://player.vimeo.com/video/1182912498) is a video of the ToothEater running my Blackbird in conjunction with RusEFI (specifically 'microRusEFI').
+You can watch the tooth eater in action working together with the microRusEfi stand alone ECU by clicking on the image below.
+[![] (./images/thumb.jpg)](https://player.vimeo.com/video/1182912498)
+<br>
 
 This 'Tooth Eater' project allows you to run the bike, without having to get into the top end and remove the teeth off the cam trigger wheel. Instead, this small PCB and its associated firmware digitally removes 'eats' the two teeth, leaving one behind to be processed by your stand alone unit. Therefore, your stand alone ECU will only see a single cam pulse (home position) instead of three every cam revolution.
 

@@ -71,6 +71,9 @@ The early 2000's CBRs use a 12 tooth crank trigger wheel. The teeth are exactly 
 
 The cam trigger wheel is as shown below. The tooth highlighted in red is the SYNC tooth as mentioned. I also refer to this tooth as the 'First Paired', since it is adjacent to its neighbour tooth that I refer to the 'Second Paired'. The remaining opposite tooth (on its own) I refer to as the 'Isolated' tooth. Once SYNCED, the firmware inhibits the 'Second Paired' and 'Isolated' tooth and only allows the 'First Paired' to pass through. It does this continually as the engine is running, however in most cases the ECU is only interested in the initial startup then manages its own cam sync internally. Once SYNCED, the crank signal is allowed to 'pass-through' to the ECU via the VR conditioner. When the engine is running the crank signal is not processed by the tooth eater, however it is briefly used at engine startup to gain the SYNC as fast as possible for short cranking times. In the worst case scenario, SYNC should be attained in no more than 2 camshaft revolutions or 4 crank revolutions. Both cam and crank signals are used to gain initial sync.
 
+<table border="1">
+<tr>
+<td align="center" valign="center">
 <img 
     style="display: block; 
            margin-left: auto;
@@ -78,6 +81,9 @@ The cam trigger wheel is as shown below. The tooth highlighted in red is the SYN
            width: 50%;"
     src="./images/SyncedCamTooth.png#center">
 </img>
+
+<p style="text-align: center;">The 'First Paired' tooth as shown by the red arrow is the SYNC tooth. The other two teeth are removed by the digital processing.</p>
+</table>
 
 <br>
 As the camshaft spins it produces a signal as shown below. This is the raw signal as produced by the inductive pickup and is not processable directly by the ECU.
@@ -89,7 +95,7 @@ As the camshaft spins it produces a signal as shown below. This is the raw signa
     style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 50%;"
+           width: 80%;"
     src="./images/CAM-RawSensorOutput.png#center">
 </img>
 
@@ -107,12 +113,43 @@ Likewise, the raw crank signal appears as follows.
     style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 50%;"
+           width: 80%;"
     src="./images/CRANK-RawSensorOutput.png#center">
 </img>
 
 <p style="text-align: center;">Raw crank signal directly from the inductive pickup.</p>
 </table>
 
+These raw signals are fed into the VR conditioner plug-in circuit on the board. The TTL output is shown in the image below.
 
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"
+    src="./images/VR_TTL_Output.png#center">
+</img>
+
+<p style="text-align: center;">Crank and cam signals as processed by the VR plug-in module.</p>
+</table>
+
+<br>
+
+Finally, the output produced by the tooth eater module.
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"
+    src="./images/TE_PostProcessing.png#center">
+</img>
+
+<p style="text-align: center;">Tooth Eater processed output. This is fed into the downstream ECU. I.e. 24 crank pulses and 1 cam pulse. This makes for a very standard configuration that most ECU's will support.</p>
+</table>
 

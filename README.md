@@ -65,11 +65,11 @@ On engine startup the tooth eater must 'SYNC' to the reference tooth (shown in r
 
 # Principles of Operation
 
-The tooth eater appears to deals with 'teeth' or pulses, however in reality it is only the rising or falling edges of that pulse that is relevant to the downstream ECU. The ECU deals only with edges and when it receives them, the ECU internally fires an interrupt service routine (ISR) that will update the crank and/or cam position in real time. All ECU's work with edges.
+The tooth eater appears to deal with 'teeth' or pulses, however in reality it is only the rising or falling edges of that pulse that is relevant to the downstream ECU. The ECU deals only with edges and when it receives them it internally fires an interrupt service routine (ISR) that will update the crank and/or cam position in real time. All ECU's work with edges.
 
-The early 2000's CBRs have a 12 tooth crank trigger wheel. The teeth are exactly spaced as the hours on a watch. The cam trigger wheel is as shown below. The tooth highlighted in red is the SYNC tooth as mentioned. I also refer to this tooth as the 'First Paired', since it is adjacent to its neighbour tooth that I refer to the 'Second Paired'. The remaining opposite tooth I refer to as the 'Isolated' tooth. Once SYNCED, the firmware inhibits the 'Second Paired' and 'Isolated' tooth and only allows the 'First Paired' to pass through. It does this continually as the engine is running, however in most cases the ECU is only interested in the initial startup then manages its own cam sync internally. Once SYNCED, the crank signal is allowed to 'pass-through' to the ECU via the VR conditioner. When the engine is running the crank signal is not processed by the tooth eater, however it is briefly used at engine startup to gain the SYNC. In a worst case scenario, SYNC should be attained in no more than 2 camshaft revolutions or 4 crank revolutions. Both cam and crank signals are used to gain initial sync.
+The early 2000's CBRs use a 12 tooth crank trigger wheel. The teeth are exactly spaced as the hours on a clock. In one crank revolution the ECU will see 12 pulses (360 deg). Two crank revolutions constitutes one engine cycle in which case 24 crank pulses will have been received by the ECU (720 deg). In one engine cycle exactly one cam pulse will be produced by the tooth eater.
 
-
+The cam trigger wheel is as shown below. The tooth highlighted in red is the SYNC tooth as mentioned. I also refer to this tooth as the 'First Paired', since it is adjacent to its neighbour tooth that I refer to the 'Second Paired'. The remaining opposite tooth (on its own) I refer to as the 'Isolated' tooth. Once SYNCED, the firmware inhibits the 'Second Paired' and 'Isolated' tooth and only allows the 'First Paired' to pass through. It does this continually as the engine is running, however in most cases the ECU is only interested in the initial startup then manages its own cam sync internally. Once SYNCED, the crank signal is allowed to 'pass-through' to the ECU via the VR conditioner. When the engine is running the crank signal is not processed by the tooth eater, however it is briefly used at engine startup to gain the SYNC as fast as possible for short cranking times. In the worst case scenario, SYNC should be attained in no more than 2 camshaft revolutions or 4 crank revolutions. Both cam and crank signals are used to gain initial sync.
 
 <img 
     style="display: block; 
@@ -78,4 +78,41 @@ The early 2000's CBRs have a 12 tooth crank trigger wheel. The teeth are exactly
            width: 50%;"
     src="./images/SyncedCamTooth.png#center">
 </img>
+
+<br>
+As the camshaft spins it produces a signal as shown below. This is the raw signal as produced by the inductive pickup and is not processable directly by the ECU.
+
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 50%;"
+    src="./images/CAM-RawSensorOutput.png#center">
+</img>
+
+<p style="text-align: center;">Three levels of zoom shown of the raw cam signal directly from the inductive pickup.</p>
+</table>
+
+
+<br>
+Likewise, the raw crank signal appears as follows.
+
+<table border="1">
+<tr>
+<td align="center" valign="center">
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 50%;"
+    src="./images/CRANK-RawSensorOutput.png#center">
+</img>
+
+<p style="text-align: center;">Raw crank signal directly from the inductive pickup.</p>
+</table>
+
+
 
